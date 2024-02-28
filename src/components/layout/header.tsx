@@ -1,23 +1,7 @@
-import styled from 'styled-components'
-
-const Sidebar = styled.div`
-	position: fixed;
-	left: 1rem;
-	transform-origin: top left;
-	transform: rotate(-90deg) translateX(-100%);
-
-	width: 100vh;
-	padding: 1.5rem;
-
-	display: flex;
-
-	color: #fff;
-`
-
 export default function Header() {
 	return (
-		<Sidebar>
-			<ul className="flex justify-around w-full font-bold text-[1.1rem] [&>li>a]:cursor-pointer">
+		<div className="fixed top-0 left-[50%] translate-x-[-50%] w-[50%] flex justify-center text-white bg-[#2f2f2f33] backdrop-blur-sm p-[2rem] m-[1rem] rounded-[1rem]">
+			<ul className="flex gap-[2vw] font-semibold text-[1.1rem] [&>li>a]:cursor-pointer">
 				<li>
 					<a>Home</a>
 				</li>
@@ -28,6 +12,6 @@ export default function Header() {
 					<a>About Me</a>
 				</li>
 			</ul>
-		</Sidebar>
+		</div>
 	)
 }
