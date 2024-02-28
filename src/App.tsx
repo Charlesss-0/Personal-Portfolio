@@ -1,9 +1,9 @@
-import { Header, Hero } from './components'
+import { Hero, Sidebar } from './components'
 
 export default function App() {
 	return (
 		<>
-			<Header />
+			<Sidebar />
 			<Hero />
 		</>
 	)

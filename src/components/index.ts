@@ -1,4 +1,4 @@
-import Header from './layout/header'
 import Hero from './layout/hero'
+import Sidebar from './layout/sidebar'
 
-export { Hero, Header }
+export { Hero, Sidebar }
