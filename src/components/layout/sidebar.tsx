@@ -17,7 +17,7 @@ const Container = styled.div`
 export default function Sidebar() {
 	return (
 		<Container>
-			<ul className="flex justify-around w-full font-bold text-[1.1rem] [&>li>a]:cursor-pointer">
+			<ul className="flex justify-around w-full text-[1.2rem] [&>li>a]:cursor-pointer">
 				<li>
 					<a>Home</a>
 				</li>

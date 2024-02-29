@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&display=swap');
 
 * {
 	box-sizing: border-box;
@@ -16,7 +17,7 @@ html {
 }
 
 body {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Chakra Petch', sans-serif;
 	color: #2f2f2f;
 }
 
@@ -42,6 +43,6 @@ i {
 	font-family: 'Nunito', sans-serif;
 }
 
-.text-stroke {
+.londrina {
 	font-family: 'Londrina Outline', sans-serif;
 }
