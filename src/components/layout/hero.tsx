@@ -6,7 +6,7 @@ export default function Hero() {
 		<div className="h-screen w-full">
 			<Particles />
 			<div className="absolute top-[50%] right-[5%] translate-y-[-50%] text-white londrina">
-				<p className="text-[8rem] font-bold">Carlos Aragon</p>
+				<p className="text-[8rem] font-bold md:text-[3rem]">Carlos Aragon</p>
 				<Typewriter></Typewriter>
 			</div>
 		</div>

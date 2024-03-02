@@ -23,7 +23,9 @@ export default function Typewriter() {
 
 	return (
 		<span>
-			<motion.span className="text-[3rem] font-bold">{displayText}</motion.span>
+			<motion.span className="text-[3rem] font-bold md:text-[1.5rem]">
+				{displayText}
+			</motion.span>
 			<CursorBlinker />
 		</span>
 	)

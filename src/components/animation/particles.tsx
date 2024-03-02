@@ -72,7 +72,7 @@ export default function Box() {
 		// apply the materials
 		const particleMaterial = new THREE.PointsMaterial({
 			color: 0xffffff,
-			size: 0.01,
+			size: 0.08,
 			sizeAttenuation: true,
 			transparent: true,
 			map: createCanvasMaterial('#ffffff', 300),
@@ -84,8 +84,10 @@ export default function Box() {
 		// render canvas inner size according to its outter size
 		function resizeRendererToDisplaySize(renderer: THREE.WebGLRenderer) {
 			const canvas = renderer.domElement
-			const width = canvas.clientWidth
-			const height = canvas.clientHeight
+			const pixelRatio = window.devicePixelRatio
+			const width = (canvas.clientWidth * pixelRatio) | 0
+			const height = (canvas.clientHeight * pixelRatio) | 0
+
 			const needResize = canvas.width !== width || canvas.height !== height
 
 			if (needResize) {
@@ -131,7 +133,7 @@ export default function Box() {
 	return (
 		<canvas
 			ref={canvasRef as RefObject<HTMLCanvasElement>}
-			className="h-full w-full"
+			className="h-full w-full block"
 		/>
 	)
 }

@@ -19,13 +19,13 @@ export default function Sidebar() {
 		<Container>
 			<ul className="flex justify-around w-full text-[1.2rem] [&>li>a]:cursor-pointer">
 				<li>
-					<a>Home</a>
+					<a>Contact</a>
+				</li>
+				<li>
+					<a>Details</a>
 				</li>
 				<li>
 					<a>Projects</a>
-				</li>
-				<li>
-					<a>About Me</a>
 				</li>
 			</ul>
 		</Container>

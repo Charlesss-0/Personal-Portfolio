@@ -19,6 +19,7 @@ html {
 body {
 	font-family: 'Chakra Petch', sans-serif;
 	color: #2f2f2f;
+	background-color: #000;
 }
 
 i {
@@ -33,10 +34,6 @@ i {
 
 .text-shadow-sm {
 	text-shadow: 1px 1px 3px #000a;
-}
-
-.box-shadow {
-	box-shadow: 2px 2px 5px #0003;
 }
 
 .nunito {
