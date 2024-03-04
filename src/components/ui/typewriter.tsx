@@ -19,7 +19,7 @@ export default function Typewriter() {
 		})
 
 		return controls.stop
-	}, [])
+	}, [count])
 
 	return (
 		<span>

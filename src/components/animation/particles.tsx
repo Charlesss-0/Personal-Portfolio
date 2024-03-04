@@ -72,7 +72,7 @@ export default function Box() {
 		// apply the materials
 		const particleMaterial = new THREE.PointsMaterial({
 			color: 0xffffff,
-			size: 0.08,
+			size: 0.01,
 			sizeAttenuation: true,
 			transparent: true,
 			map: createCanvasMaterial('#ffffff', 300),
