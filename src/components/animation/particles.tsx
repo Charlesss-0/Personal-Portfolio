@@ -105,7 +105,7 @@ export default function Box() {
 			particles.position.y = mouseY
 		}
 
-		window.addEventListener('mousemove', handleMouseMove)
+		canvas.addEventListener('mousemove', handleMouseMove)
 
 		// render the final animation
 		function render() {
