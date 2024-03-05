@@ -2,14 +2,18 @@ import * as THREE from 'three'
 
 import { RefObject, useEffect, useRef } from 'react'
 
+import { UseComponentContext } from '../context'
+
 export default function Box() {
 	const canvasRef = useRef<HTMLCanvasElement>(null)
+	const { divRef } = UseComponentContext()
 
 	useEffect(() => {
 		// Target the canvas element by using "useRef from React"
-		const canvas = canvasRef.current
+		const canvas = canvasRef?.current
+		const divContainer = divRef?.current
 
-		if (!canvas) {
+		if (!canvas || !divContainer) {
 			console.error('Canvas element not found.')
 			return
 		}
@@ -72,7 +76,7 @@ export default function Box() {
 		// apply the materials
 		const particleMaterial = new THREE.PointsMaterial({
 			color: 0xffffff,
-			size: 0.01,
+			size: 0.08,
 			sizeAttenuation: true,
 			transparent: true,
 			map: createCanvasMaterial('#ffffff', 300),
@@ -105,7 +109,7 @@ export default function Box() {
 			particles.position.y = mouseY
 		}
 
-		canvas.addEventListener('mousemove', handleMouseMove)
+		divContainer.addEventListener('mousemove', handleMouseMove)
 
 		// render the final animation
 		function render() {
@@ -128,7 +132,7 @@ export default function Box() {
 			renderer.render(scene, camera)
 		}
 		requestAnimationFrame(render)
-	}, [])
+	}, [divRef])
 
 	return (
 		<canvas

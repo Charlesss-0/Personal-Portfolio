@@ -1,13 +1,13 @@
 import { Hero, Sidebar } from './components'
 
-import { Main } from './pages'
+import { Home } from './pages'
 
 export default function App() {
 	return (
 		<>
 			<Sidebar />
 			<Hero />
-			<Main />
+			<Home />
 		</>
 	)
 }

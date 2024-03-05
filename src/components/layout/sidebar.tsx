@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const Container = styled.div`
-	position: fixed;
+	position: absolute;
 	left: 1rem;
 	transform-origin: top left;
 	transform: rotate(-90deg) translateX(-100%);
