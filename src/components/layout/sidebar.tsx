@@ -25,7 +25,7 @@ export default function Sidebar() {
 					<a>Details</a>
 				</li>
 				<li>
-					<a>Projects</a>
+					<a href="#projects">Projects</a>
 				</li>
 			</ul>
 		</Container>

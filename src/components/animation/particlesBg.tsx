@@ -19,14 +19,14 @@ export default function Background() {
 					},
 					particles: {
 						number: {
-							value: 250,
+							value: 100,
 							density: {
-								enable: false,
+								enable: true,
 								value_area: 800,
 							},
 						},
 						color: {
-							value: '#124076',
+							value: '#efefef',
 						},
 						shape: {
 							type: 'circle',
@@ -34,12 +34,8 @@ export default function Background() {
 								width: 0,
 								color: '#000000',
 							},
-							polygon: {
-								nb_sides: 5,
-							},
 						},
 						opacity: {
-							value: 1,
 							random: false,
 							anim: {
 								enable: false,
@@ -49,25 +45,19 @@ export default function Background() {
 							},
 						},
 						size: {
-							value: 3,
+							value: 1,
 							random: true,
-							anim: {
-								enable: false,
-								speed: 40,
-								size_min: 0.1,
-								sync: false,
-							},
 						},
 						line_linked: {
 							enable: true,
 							distance: 150,
-							color: '#ffffff',
-							opacity: 0.4,
+							color: '#efefef',
+							opacity: 0.5,
 							width: 1,
 						},
 						move: {
 							enable: true,
-							speed: 2,
+							speed: 3,
 							direction: 'none',
 							random: false,
 							straight: false,
@@ -85,7 +75,6 @@ export default function Background() {
 								enable: true,
 								mode: 'push',
 							},
-							resize: false,
 						},
 						modes: {
 							grab: {
@@ -93,13 +82,6 @@ export default function Background() {
 								line_linked: {
 									opacity: 1,
 								},
-							},
-							bubble: {
-								distance: 400,
-								size: 5,
-								duration: 2,
-								opacity: 8,
-								speed: 3,
 							},
 							push: {
 								particles_nb: 1,

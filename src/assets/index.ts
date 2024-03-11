@@ -1,15 +1,16 @@
-import css from './css.svg'
-import figma from './figma.svg'
-import firebase from './firebase.svg'
-import git from './git.svg'
-import github from './github.svg'
-import html from './html.svg'
-import javascript from './javascript.svg'
-import react from './react.svg'
-import tailwind from './tailwind.svg'
-import threeJS from './threeJS.svg'
-import typescript from './typescript.svg'
-import webpack from './webpack.svg'
+import css from './icons/css.svg'
+import figma from './icons/figma.svg'
+import firebase from './icons/firebase.svg'
+import gcSite from './images/gcSite.png'
+import git from './icons/git.svg'
+import github from './icons/github.svg'
+import html from './icons/html.svg'
+import javascript from './icons/javascript.svg'
+import react from './icons/react.svg'
+import tailwind from './icons/tailwind.svg'
+import threeJS from './icons/threeJS.svg'
+import typescript from './icons/typescript.svg'
+import webpack from './icons/webpack.svg'
 
 export {
 	html,
@@ -24,4 +25,5 @@ export {
 	firebase,
 	figma,
 	webpack,
+	gcSite,
 }
