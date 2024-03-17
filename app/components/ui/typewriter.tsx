@@ -23,7 +23,7 @@ export default function Typewriter() {
 
 	return (
 		<span>
-			<motion.span className="text-[3rem] font-bold md:text-[1.5rem]">
+			<motion.span className="text-[3rem] font-bold md:text-[1.5rem] text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-green-500 to-blue-500">
 				{displayText}
 			</motion.span>
 			<CursorBlinker />
@@ -32,22 +32,20 @@ export default function Typewriter() {
 }
 
 function CursorBlinker() {
-	const cursorVariant = {
-		blinking: {
-			opacity: [0, 0, 1, 1],
-			transition: {
-				duration: 1,
-				repeat: Infinity,
-				repeatDelay: 0,
-				ease: 'linear',
-				times: [0, 0.5, 0.5, 1],
-			},
-		},
-	}
-
 	return (
 		<motion.div
-			variants={cursorVariant}
+			variants={{
+				blinking: {
+					opacity: [0, 0, 1, 1],
+					transition: {
+						duration: 1,
+						repeat: Infinity,
+						repeatDelay: 0,
+						ease: 'linear',
+						times: [0, 0.5, 0.5, 1],
+					},
+				},
+			}}
 			animate="blinking"
 			className="inline-block h-[3rem] w-[5px] rounded-sm translate-y-1 bg-[#0B60B0]"
 		/>

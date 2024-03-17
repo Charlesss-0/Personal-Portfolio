@@ -1,22 +1,26 @@
-import { GC, WeatherModelApp } from '../models'
+import Card from '../ui/3dCard'
+import GC from '../../assets/images/gc-site.webp'
+import React from 'react'
+import WeatherApp from '../../assets/images/weather-app.webp'
 
-export default function Content(): JSX.Element {
+export default function Content(): React.ReactNode {
 	const projects = [
 		{
 			name: 'GC (e-commerce website)',
 			description:
 				'Developed an e-commerce platform with user authentication that allows users to save their favorites products',
-			model: <GC />,
+			img: GC,
 		},
 		{
 			name: 'Weather App',
 			description: 'View the current weather in your local city',
-			model: <WeatherModelApp />,
+			img: WeatherApp,
 		},
 		{
 			name: 'Etch-a-Sketch',
 			description:
 				'Make any pixel drawing starting with a grid of 16x16 up to 100x100',
+			img: '',
 		},
 	]
 
@@ -26,9 +30,13 @@ export default function Content(): JSX.Element {
 				{projects.map((item, index) => (
 					<li
 						key={index}
-						className={`flex ${index % 2 === 0 ? 'flex' : 'flex-row-reverse'}`}
+						className={`flex p-[2rem] ${
+							index % 2 === 0 ? 'flex' : 'flex-row-reverse'
+						}`}
 					>
-						<div className="w-[200rem]">{item.model}</div>
+						<div className="w-full">
+							<Card img={item.img} details={item.name} />
+						</div>
 
 						<div className="w-full text-center p-[1rem] flex flex-col gap-[2rem] justify-center items-center">
 							<h1 className="text-[1.5rem]">{item.name}</h1>

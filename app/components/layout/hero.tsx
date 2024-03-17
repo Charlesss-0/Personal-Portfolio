@@ -1,5 +1,4 @@
 import ParticlesBg from '../animation/particlesBg'
-import Typewriter from '../ui/typewriter'
 
 export default function Hero() {
 	return (
@@ -9,7 +8,6 @@ export default function Hero() {
 				<p className="text-[8rem] font-semibold md:text-[3rem]">
 					Carlos Aragon
 				</p>
-				<Typewriter></Typewriter>
 			</div>
 		</div>
 	)
