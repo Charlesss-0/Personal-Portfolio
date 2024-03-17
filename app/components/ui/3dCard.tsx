@@ -16,7 +16,7 @@ const Box = styled.div`
 
 export default function Card(props: {
 	img: string | undefined
-	details: string | undefined
+	alt: string | undefined
 }) {
 	const divRef = useRef<HTMLDivElement>(null)
 
@@ -38,7 +38,7 @@ export default function Card(props: {
 			<div className="bg-[#fff3] mx-[-0.5rem]">
 				<img
 					src={props.img}
-					alt={props.details}
+					alt={props.alt}
 					loading="lazy"
 					className="object-cover cursor-pointer"
 				/>
