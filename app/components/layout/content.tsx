@@ -2,6 +2,7 @@ import Card from '../ui/3dCard'
 import GC from '../../assets/images/gc-site.webp'
 import React from 'react'
 import WeatherApp from '../../assets/images/weather-app.webp'
+import etchASketch from '../../assets/images/etchAsketch.webp'
 
 export default function Content(): React.ReactNode {
 	const projects = [
@@ -20,7 +21,7 @@ export default function Content(): React.ReactNode {
 			name: 'Etch-a-Sketch',
 			description:
 				'Make any pixel drawing starting with a grid of 16x16 up to 100x100',
-			img: '',
+			img: etchASketch,
 		},
 	]
 

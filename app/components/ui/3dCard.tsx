@@ -8,10 +8,10 @@ const Box = styled.div`
 	transform-style: preserve-3d;
 	overflow: hidden;
 	border-radius: 1rem;
-`
 
-const CardItem = styled.div`
-	background: #fff3;
+	&:hover {
+		box-shadow: 0 0 50px #fff3, 0 0 50px #fff3, 0 0 50px #fff3;
+	}
 `
 
 export default function Card(props: {
@@ -27,6 +27,7 @@ export default function Card(props: {
 			max: 15,
 			speed: 200,
 			glare: true,
+			'max-glare': 0.4,
 			reverse: true,
 			perspective: 1000,
 		})
@@ -34,15 +35,14 @@ export default function Card(props: {
 
 	return (
 		<Box ref={divRef}>
-			<CardItem>
+			<div className="bg-[#fff3] mx-[-0.5rem]">
 				<img
 					src={props.img}
 					alt={props.details}
-					style={{
-						objectFit: 'cover',
-					}}
+					loading="lazy"
+					className="object-cover cursor-pointer"
 				/>
-			</CardItem>
+			</div>
 		</Box>
 	)
 }
