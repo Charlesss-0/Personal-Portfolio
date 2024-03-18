@@ -4,10 +4,12 @@ import { useEffect, useState } from 'react'
 const blink = keyframes`
 	25% {
 		opacity: 0;
+		height: 0;
 	}
 
 	75% {
 		opacity: 1;
+		height: 80%;
 	}
 `
 

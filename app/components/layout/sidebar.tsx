@@ -24,18 +24,19 @@ const LinkItem = styled.li`
 	&::after {
 		content: '';
 		position: absolute;
-		top: 50%;
-		left: 0;
 		width: 100%;
-		height: 5px;
-		border-radius: 50rem;
-		background: #008dda;
-		transform: translate(-100%, -50%);
-		transition: all 400ms;
+		transform: scaleX(0);
+		height: 2px;
+		bottom: 0;
+		left: 0;
+		background-color: #fff;
+		transform-origin: bottom right;
+		transition: transform 0.25s linear;
 	}
 
 	&:hover::after {
-		transform: translateX(0%);
+		transform: scaleX(1);
+		transform-origin: bottom left;
 	}
 `
 
@@ -59,9 +60,9 @@ export default function Sidebar() {
 		<Container>
 			<ul className="flex justify-around w-full text-[1.2rem] [&>li>a]:cursor-pointer">
 				{items.map(item => (
-					<LinkItem key={item.name}>
-						<a href={item.link}>{item.name}</a>
-					</LinkItem>
+					<a key={item.name} href={item.link}>
+						<LinkItem>{item.name}</LinkItem>
+					</a>
 				))}
 			</ul>
 		</Container>

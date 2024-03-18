@@ -40,7 +40,8 @@ export default function Card(props: {
 					src={props.img}
 					alt={props.alt}
 					loading="lazy"
-					className="object-cover cursor-pointer"
+					draggable={false}
+					className="object-cover cursor-pointer select-none"
 				/>
 			</div>
 		</Box>
