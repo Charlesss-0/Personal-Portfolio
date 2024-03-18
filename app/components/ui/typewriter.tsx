@@ -1,53 +1,60 @@
-import { animate, motion, useMotionValue, useTransform } from 'framer-motion'
+import styled, { keyframes } from 'styled-components'
+import { useEffect, useState } from 'react'
 
-import { useEffect } from 'react'
+const blink = keyframes`
+	25% {
+		opacity: 0;
+	}
 
-export default function Typewriter() {
-	const baseText = 'Front-end Web Developer'
-	const count = useMotionValue(0)
-	const rounded = useTransform(count, latest => Math.round(latest))
-	const displayText = useTransform(rounded, latest => baseText.slice(0, latest))
+	75% {
+		opacity: 1;
+	}
+`
+
+const Cursor = styled.div`
+	width: 5px;
+	height: 80%;
+	background: #008dda;
+	border-radius: 50rem;
+	animation: ${blink} 1s linear infinite;
+`
+
+export default function Typewriter({ text }: { text: string }) {
+	const [currentText, setCurrentText] = useState('')
+	const [direction, setDirection] = useState(1) // 1 for forward, -1 for backward
+	const [currentIndex, setCurrentIndex] = useState(0)
+	const delay = 10000
 
 	useEffect(() => {
-		const controls = animate(count, baseText.length, {
-			type: 'tween',
-			duration: 1,
-			ease: 'easeInOut',
-			repeat: Infinity,
-			repeatDelay: 5,
-			repeatType: 'reverse',
-		})
+		const interval = setInterval(() => {
+			if (direction === 1) {
+				if (currentIndex === text.length) {
+					setTimeout(() => {
+						setDirection(-1) // Change direction to go backward after delay
+					}, delay)
+				} else {
+					setCurrentText(text.slice(0, currentIndex + 1))
+					setCurrentIndex(currentIndex + 1)
+				}
+			} else {
+				if (currentIndex === 0) {
+					setTimeout(() => {
+						setDirection(1) // Change direction to go forward after delay
+					}, delay)
+				} else {
+					setCurrentText(text.slice(0, currentIndex - 1))
+					setCurrentIndex(currentIndex - 1)
+				}
+			}
+		}, 50)
 
-		return controls.stop
-	}, [count])
+		return () => clearInterval(interval)
+	}, [text, currentIndex, direction])
 
 	return (
-		<span>
-			<motion.span className="text-[3rem] font-bold md:text-[1.5rem] text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-green-500 to-blue-500">
-				{displayText}
-			</motion.span>
-			<CursorBlinker />
-		</span>
-	)
-}
-
-function CursorBlinker() {
-	return (
-		<motion.div
-			variants={{
-				blinking: {
-					opacity: [0, 0, 1, 1],
-					transition: {
-						duration: 1,
-						repeat: Infinity,
-						repeatDelay: 0,
-						ease: 'linear',
-						times: [0, 0.5, 0.5, 1],
-					},
-				},
-			}}
-			animate="blinking"
-			className="inline-block h-[3rem] w-[5px] rounded-sm translate-y-1 bg-[#0B60B0]"
-		/>
+		<div className="flex gap-[0.5rem] items-center h-[5rem]">
+			<h2 className="text-[3rem] font-semibold">{currentText}</h2>
+			<Cursor />
+		</div>
 	)
 }

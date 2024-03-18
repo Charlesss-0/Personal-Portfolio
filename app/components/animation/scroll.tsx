@@ -33,7 +33,7 @@ export default function Scroll() {
 
 	return (
 		<div
-			className="overflow-hidden p-[2rem]"
+			className="overflow-hidden p-[2rem] mt-[10rem]"
 			style={{
 				WebkitMask: `linear-gradient(
                     90deg,
@@ -57,7 +57,12 @@ export default function Scroll() {
 				}}
 			>
 				{icons.map((icon, index) => (
-					<img src={icon} key={index} className="w-[100px]" />
+					<img
+						src={icon}
+						key={index}
+						className="w-[100px] select-none"
+						draggable={false}
+					/>
 				))}
 			</motion.div>
 		</div>
