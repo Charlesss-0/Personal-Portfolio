@@ -12,10 +12,11 @@ const ViewProjects = styled.button`
 	position: relative;
 	z-index: 1;
 	overflow: hidden;
-	border: 1px solid #fff;
+	outline: 1px solid #fff;
 
 	&:hover {
 		color: black;
+		outline: none;
 	}
 
 	&:after {

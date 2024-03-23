@@ -36,10 +36,18 @@ i {
 	text-shadow: 1px 1px 3px #000a;
 }
 
+.montserrat {
+	font-family: 'Montserrat', sans-serif;
+}
+
 .nunito {
 	font-family: 'Nunito', sans-serif;
 }
 
 .londrina {
 	font-family: 'Londrina Outline', sans-serif;
+}
+
+.chakra-petch {
+	font-family: 'Chakra Petch', sans-serif;
 }
