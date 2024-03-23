@@ -14,22 +14,22 @@ const Box = styled.div`
 	}
 `
 
-export default function Card(props: {
-	img: string | undefined
-	alt: string | undefined
-}) {
+interface CardProps {
+	img: string
+	alt: string
+}
+
+export default function Card({ img, alt }: CardProps) {
 	const divRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
-		const div = divRef?.current
+		const div = divRef.current
 
 		VanillaTilt.init(div as HTMLElement, {
-			max: 15,
-			speed: 200,
+			max: 10,
+			speed: 100,
 			glare: true,
 			'max-glare': 0.4,
-			reverse: true,
-			perspective: 1000,
 		})
 	}, [])
 
@@ -37,8 +37,8 @@ export default function Card(props: {
 		<Box ref={divRef}>
 			<div className="bg-[#fff3] mx-[-0.5rem]">
 				<img
-					src={props.img}
-					alt={props.alt}
+					src={img}
+					alt={alt}
 					loading="lazy"
 					draggable={false}
 					className="object-cover cursor-pointer select-none"

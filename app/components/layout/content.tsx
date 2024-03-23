@@ -2,7 +2,7 @@ import Card from '../ui/3dCard'
 import GC from '../../assets/images/gc-site.webp'
 import React from 'react'
 import WeatherApp from '../../assets/images/weather-app.webp'
-import etchASketch from '../../assets/images/etchAsketch.webp'
+import pixelssketch from '../../assets/images/pixelssketch.webp'
 import styled from 'styled-components'
 
 const ViewProjects = styled.button`
@@ -43,24 +43,25 @@ const ViewProjects = styled.button`
 export default function Content(): React.ReactNode {
 	const projects = [
 		{
+			name: 'Pixels Sketch',
+			description:
+				'Designed and developed a pixel art creation app for a creative experience',
+			img: pixelssketch,
+			url: 'https://pixelssketch.netlify.app/',
+		},
+		{
 			name: 'GC (e-commerce website)',
 			description:
-				'Developed an e-commerce platform with user authentication that allows users to save their favorites products',
+				'Developed an e-commerce platform featuring user authentication, allowing users to save their favorites products for future reference',
 			img: GC,
 			url: 'https://gc-site.netlify.app',
 		},
 		{
 			name: 'Weather App',
-			description: 'View the current weather in your local city',
+			description:
+				'Created a weather application enabling users to check real-time weather updates in their current location',
 			img: WeatherApp,
 			url: 'https://weather505.netlify.app',
-		},
-		{
-			name: 'Etch-a-Sketch',
-			description:
-				'Make any pixel drawing starting with a grid of 16x16 up to 100x100',
-			img: etchASketch,
-			url: 'https://pixelssketch.netlify.app/',
 		},
 	]
 

@@ -1,10 +1,9 @@
-import { Content, Scroll } from '../../components'
+import { Content } from '../../components'
 
 export default function Home() {
 	return (
 		<div>
 			<Content />
-			<Scroll />
 		</div>
 	)
 }
