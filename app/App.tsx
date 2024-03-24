@@ -1,4 +1,4 @@
-import { Hero, Sidebar } from './components'
+import { Footer, Hero, Sidebar } from './components'
 
 import { Home } from './pages'
 
@@ -8,6 +8,7 @@ export default function App() {
 			<Sidebar />
 			<Hero />
 			<Home />
+			<Footer />
 		</>
 	)
 }

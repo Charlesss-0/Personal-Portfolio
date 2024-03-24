@@ -44,7 +44,7 @@ export default function Sidebar() {
 	const items = [
 		{
 			name: 'Contact',
-			link: '',
+			link: '#contact',
 		},
 		{
 			name: 'Details',

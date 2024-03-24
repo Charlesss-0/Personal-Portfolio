@@ -1,11 +1,11 @@
-import React, { ReactNode, createContext, useContext, useRef } from 'react'
+import React, { createContext, useContext, useRef } from 'react'
 
 interface ContextProps {
 	divRef: React.RefObject<HTMLDivElement> | null
 }
 
 interface ComponentProviderProps {
-	children: ReactNode
+	children: React.ReactNode
 }
 
 const Context = createContext<ContextProps>({ divRef: null })

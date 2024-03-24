@@ -1,9 +1,10 @@
-import { Content } from '../../components'
+import { Contact, Projects } from '../../components'
 
 export default function Home() {
 	return (
 		<div>
-			<Content />
+			<Projects />
+			<Contact />
 		</div>
 	)
 }

@@ -1,5 +1,7 @@
-import Content from './layout/content'
+import Contact from './layout/contact'
+import Footer from './layout/footer'
 import Hero from './layout/hero'
+import Projects from './layout/projects'
 import Sidebar from './layout/sidebar'
 
-export { Hero, Sidebar, Content }
+export { Hero, Sidebar, Projects, Contact, Footer }

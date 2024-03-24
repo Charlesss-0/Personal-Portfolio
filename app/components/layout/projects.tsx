@@ -32,7 +32,7 @@ const ViewProjects = styled.button`
 	}
 
 	&:hover:after {
-		transform: skewX(-45deg) scale(1, 1);
+		transform: skewX(-45deg) scale(0.8, 1);
 	}
 
 	&:active {
@@ -40,7 +40,7 @@ const ViewProjects = styled.button`
 	}
 `
 
-export default function Content(): React.ReactNode {
+export default function Projects(): React.ReactNode {
 	const projects = [
 		{
 			name: 'Pixels Sketch',
@@ -50,18 +50,18 @@ export default function Content(): React.ReactNode {
 			url: 'https://pixelssketch.netlify.app/',
 		},
 		{
-			name: 'GC (e-commerce website)',
-			description:
-				'Developed an e-commerce platform featuring user authentication, allowing users to save their favorites products for future reference',
-			img: gc,
-			url: 'https://gc-site.netlify.app',
-		},
-		{
 			name: 'Weather App',
 			description:
 				'Created a weather application enabling users to check real-time weather updates in their current location',
 			img: weatherApp,
 			url: 'https://weather505.netlify.app',
+		},
+		{
+			name: 'GC (e-commerce website)',
+			description:
+				'Developed an e-commerce platform featuring user authentication, allowing users to save their favorites products for future reference',
+			img: gc,
+			url: 'https://gc-site.netlify.app',
 		},
 	]
 
