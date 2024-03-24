@@ -19,7 +19,6 @@ const LinkItem = styled.li`
 	width: 6rem;
 	display: flex;
 	justify-content: center;
-	overflow: hidden;
 
 	&::after {
 		content: '';

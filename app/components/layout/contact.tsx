@@ -39,6 +39,32 @@ const Fieldset = styled.fieldset`
 	}
 `
 
+const SendBtn = styled.button`
+	position: relative;
+	background: #fff;
+	color: #000;
+	width: 15rem;
+	padding: 0.5rem 1rem;
+	align-self: end;
+	font-weight: bold;
+	transition: all 0.3s ease-in-out;
+	mask: linear-gradient(
+		-45deg,
+		transparent 5%,
+		#fff 5%,
+		#fff 95%,
+		transparent 95%
+	);
+
+	&:hover {
+		transform: scale(1.05);
+	}
+
+	&:active {
+		transform: scale(0.95);
+	}
+`
+
 export default function Contact() {
 	const [textareaValue, setTextareaValue] = useState<string>('')
 	const [inputValue, setInputValue] = useState<string>('')
@@ -75,10 +101,10 @@ export default function Contact() {
 	return (
 		<div
 			id="contact"
-			className="p-[2rem] mt-[10rem] flex justify-center montserrat"
+			className="h-screen p-[2rem] mt-[10rem] flex justify-center items-center montserrat"
 		>
 			<div className="p-[2rem]">
-				<h1 className="text-[2rem]">Say Hello</h1>
+				<h1 className="text-[2rem] font-semibold">Say Hello</h1>
 
 				<div className="border mt-[3rem] mb-[5rem]"></div>
 
@@ -111,12 +137,9 @@ export default function Contact() {
 						</Fieldset>
 					))}
 
-					<button
-						type="submit"
-						className="border px-[1rem] py-[0.5rem] hover:bg-"
-					>
+					<SendBtn type="submit" className="chakra-petch">
 						Send message
-					</button>
+					</SendBtn>
 				</form>
 			</div>
 		</div>
