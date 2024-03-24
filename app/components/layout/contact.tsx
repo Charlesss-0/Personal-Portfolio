@@ -10,17 +10,20 @@ const Fieldset = styled.fieldset`
 
 	& > label {
 		text-transform: uppercase;
-		transition: all 500ms;
+		transition: all 0.4s;
 		position: absolute;
+		left: 5px;
 		transform: translateY(-8px);
 		color: #aaa;
+		font-weight: 900;
+		z-index: -1;
 	}
 
 	input,
 	textarea {
 		background: none;
 		outline: none;
-		border-bottom: 1px solid #fff;
+		border-bottom: 1px solid #aaa;
 		width: 100%;
 		resize: none;
 		overflow: hidden;
@@ -31,11 +34,11 @@ const Fieldset = styled.fieldset`
 	textarea:focus + label,
 	input:valid + label,
 	textarea:valid + label {
-		transform: translateY(-33px);
-		position: absolute;
+		transform: translateY(-20px);
 		top: 0;
 		font-size: 0.8rem;
 		color: #fff;
+		font-weight: 900;
 	}
 `
 
@@ -48,6 +51,13 @@ const SendBtn = styled.button`
 	align-self: end;
 	font-weight: bold;
 	transition: all 0.3s ease-in-out;
+	-webkit-mask: linear-gradient(
+		-45deg,
+		transparent 5%,
+		#fff 5%,
+		#fff 95%,
+		transparent 95%
+	);
 	mask: linear-gradient(
 		-45deg,
 		transparent 5%,
