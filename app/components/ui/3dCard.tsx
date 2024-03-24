@@ -41,7 +41,7 @@ export default function Card({ img, alt }: CardProps) {
 					alt={alt}
 					loading="lazy"
 					draggable={false}
-					className="object-cover cursor-pointer select-none"
+					className="object-cover select-none"
 				/>
 			</div>
 		</Box>

@@ -1,8 +1,7 @@
+import { gc, pixelssketch, weatherApp } from '../../assets'
+
 import Card from '../ui/3dCard'
-import GC from '../../assets/images/gc-site.webp'
 import React from 'react'
-import WeatherApp from '../../assets/images/weather-app.webp'
-import pixelssketch from '../../assets/images/pixelssketch.webp'
 import styled from 'styled-components'
 
 const ViewProjects = styled.button`
@@ -54,14 +53,14 @@ export default function Content(): React.ReactNode {
 			name: 'GC (e-commerce website)',
 			description:
 				'Developed an e-commerce platform featuring user authentication, allowing users to save their favorites products for future reference',
-			img: GC,
+			img: gc,
 			url: 'https://gc-site.netlify.app',
 		},
 		{
 			name: 'Weather App',
 			description:
 				'Created a weather application enabling users to check real-time weather updates in their current location',
-			img: WeatherApp,
+			img: weatherApp,
 			url: 'https://weather505.netlify.app',
 		},
 	]

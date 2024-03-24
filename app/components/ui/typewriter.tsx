@@ -58,8 +58,8 @@ export default function Typewriter({
 	}, [text, index, direction])
 
 	return (
-		<div className="flex gap-[0.5rem] items-center w-[max-content] h-[7.7rem] md:h-[3.3rem] md:w-[30rem]">
-			<span className="chakra-petch text-[5rem] text-right font-semibold md:text-[2rem]">
+		<div className="flex gap-[0.5rem] items-center w-[max-content] h-[7.7rem] md:h-[3.3rem]">
+			<span className="text-[5rem] text-right font-semibold md:text-[2rem]">
 				{currentText}
 			</span>
 			<Cursor />
