@@ -4,12 +4,16 @@ import styled from 'styled-components'
 
 const Fieldset = styled.fieldset`
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	flex-direction: column-reverse;
 	width: 500px;
+	position: relative;
 
 	& > label {
 		text-transform: uppercase;
+		transition: all 500ms;
+		position: absolute;
+		transform: translateY(-8px);
+		color: #aaa;
 	}
 
 	input,
@@ -18,15 +22,26 @@ const Fieldset = styled.fieldset`
 		outline: none;
 		border-bottom: 1px solid #fff;
 		width: 100%;
-		text-align: center;
 		resize: none;
 		overflow: hidden;
 		padding: 0.5rem;
 	}
+
+	input:focus + label,
+	textarea:focus + label,
+	input:valid + label,
+	textarea:valid + label {
+		transform: translateY(-33px);
+		position: absolute;
+		top: 0;
+		font-size: 0.8rem;
+		color: #fff;
+	}
 `
 
 export default function Contact() {
-	const [value, setValue] = useState<string>('')
+	const [textareaValue, setTextareaValue] = useState<string>('')
+	const [inputValue, setInputValue] = useState<string>('')
 	const textareaRef = useRef<HTMLTextAreaElement>(null)
 
 	useEffect(() => {
@@ -34,10 +49,12 @@ export default function Contact() {
 			textareaRef.current.style.height = '0'
 			textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`
 		}
-	}, [value])
+	}, [textareaValue])
 
-	const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-		setValue(e.target.value)
+	const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+		e.preventDefault()
+		setInputValue('')
+		setTextareaValue('')
 	}
 
 	const inputs = [
@@ -63,33 +80,43 @@ export default function Contact() {
 			<div className="p-[2rem]">
 				<h1 className="text-[2rem]">Say Hello</h1>
 
-				<div className="border my-[1rem] mb-[5rem]"></div>
+				<div className="border mt-[3rem] mb-[5rem]"></div>
 
-				<form className="flex flex-col gap-[3rem]">
+				<form onSubmit={handleSubmit} className="flex flex-col gap-[4rem]">
 					{inputs.map((input, i) => (
 						<Fieldset key={i}>
-							<label htmlFor={input.id}>{input.text}</label>
 							{input.element === 'input' ? (
 								<input
-									type={input.type}
+									type={input.text}
 									id={input.id}
 									name={input.id}
+									value={inputValue}
 									autoComplete="off"
+									maxLength={100}
 									className="nunito"
+									onChange={e => setInputValue(e.target.value)}
+									required
 								/>
 							) : (
 								<textarea
 									ref={textareaRef}
-									value={value}
+									value={textareaValue}
 									autoComplete="off"
-									maxLength={4096}
-									onChange={handleChange}
+									maxLength={3000}
+									onChange={e => setTextareaValue(e.target.value)}
+									required
 								></textarea>
 							)}
+							<label htmlFor={input.id}>{input.text}</label>
 						</Fieldset>
 					))}
 
-					<button className="border px-[1rem] py-[0.5rem]">Send message</button>
+					<button
+						type="submit"
+						className="border px-[1rem] py-[0.5rem] hover:bg-"
+					>
+						Send message
+					</button>
 				</form>
 			</div>
 		</div>
