@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 const ViewProjects = styled.button`
 	font-size: 1.5rem;
-	padding: 0.5rem 1rem;
+	padding: 0.5rem 4rem;
 	transition: all 0.2s ease-in;
 	position: relative;
 	z-index: 1;
@@ -32,7 +32,7 @@ const ViewProjects = styled.button`
 	}
 
 	&:hover:after {
-		transform: skewX(-45deg) scale(0.8, 1);
+		transform: skewX(-45deg) scale(0.75, 1);
 	}
 
 	&:active {
