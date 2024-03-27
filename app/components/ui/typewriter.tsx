@@ -4,21 +4,19 @@ import styled, { keyframes } from 'styled-components'
 const blink = keyframes`
 	25% {
 		opacity: 0;
-		height: 0;
 	}
 
 	75% {
 		opacity: 1;
-		height: 80%;
 	}
 `
 
 const Cursor = styled.div`
 	width: 5px;
-	height: 80%;
+	height: 70%;
 	background: #efefef;
 	border-radius: 50rem;
-	animation: ${blink} 1s linear infinite;
+	animation: ${blink} 1.3s infinite;
 `
 
 export default function Typewriter({

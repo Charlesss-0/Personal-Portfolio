@@ -78,6 +78,7 @@ const SendBtn = styled.button`
 export default function Contact() {
 	const [textareaValue, setTextareaValue] = useState<string>('')
 	const [inputValue, setInputValue] = useState<string>('')
+	const formRef = useRef<HTMLFormElement>(null)
 	const textareaRef = useRef<HTMLTextAreaElement>(null)
 
 	useEffect(() => {
@@ -87,26 +88,45 @@ export default function Contact() {
 		}
 	}, [textareaValue])
 
-	const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
-		e.preventDefault()
-		setInputValue('')
-		setTextareaValue('')
-	}
-
 	const inputs = [
 		{
 			element: 'input',
 			text: 'Your email',
 			type: 'email',
-			id: 'email',
+			id: 'Email',
 		},
 		{
 			element: 'textarea',
 			text: 'Message',
 			type: 'text',
-			id: 'message',
+			id: 'Message',
 		},
 	]
+
+	const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
+		e.preventDefault()
+
+		if (formRef.current) {
+			const data = new FormData(formRef.current)
+			const action =
+				'https://script.google.com/macros/s/AKfycbxHFC6fkFxg-q8aFgSP9k6APv60HA6fIIuUuf8YswW-nXNDZ30MaE--vqhf4eFv_b5V_w/exec'
+
+			try {
+				const response = await fetch(action, {
+					method: 'POST',
+					body: data,
+				})
+
+				if (response.ok) {
+					console.log('Data sent successfully!')
+					setInputValue('')
+					setTextareaValue('')
+				}
+			} catch (e) {
+				console.error('Data not sent:', e)
+			}
+		}
+	}
 
 	return (
 		<div
@@ -116,9 +136,13 @@ export default function Contact() {
 			<div className="p-[2rem]">
 				<h1 className="text-[2rem] font-semibold">Say Hello</h1>
 
-				<div className="border mt-[3rem] mb-[5rem]"></div>
+				<div className="border mt-[1rem] mb-[5rem]"></div>
 
-				<form onSubmit={handleSubmit} className="flex flex-col gap-[4rem]">
+				<form
+					ref={formRef}
+					onSubmit={handleSubmit}
+					className="flex flex-col gap-[4rem]"
+				>
 					{inputs.map((input, i) => (
 						<Fieldset key={i}>
 							{input.element === 'input' ? (
@@ -137,8 +161,11 @@ export default function Contact() {
 								<textarea
 									ref={textareaRef}
 									value={textareaValue}
+									id={input.id}
+									name={input.id}
 									autoComplete="off"
 									maxLength={3000}
+									className="nunito"
 									onChange={e => setTextareaValue(e.target.value)}
 									required
 								></textarea>
