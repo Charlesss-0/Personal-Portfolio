@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
+import Loader from '../animation/loader'
 import styled from 'styled-components'
 
 const Fieldset = styled.fieldset`
@@ -78,6 +79,8 @@ const SendBtn = styled.button`
 export default function Contact() {
 	const [textareaValue, setTextareaValue] = useState<string>('')
 	const [inputValue, setInputValue] = useState<string>('')
+	const [isSending, setIsSending] = useState<boolean>(false)
+	const [success, setSuccess] = useState<boolean>(false)
 	const formRef = useRef<HTMLFormElement>(null)
 	const textareaRef = useRef<HTMLTextAreaElement>(null)
 
@@ -112,6 +115,8 @@ export default function Contact() {
 				'https://script.google.com/macros/s/AKfycbxHFC6fkFxg-q8aFgSP9k6APv60HA6fIIuUuf8YswW-nXNDZ30MaE--vqhf4eFv_b5V_w/exec'
 
 			try {
+				setIsSending(!isSending)
+
 				const response = await fetch(action, {
 					method: 'POST',
 					body: data,
@@ -122,6 +127,8 @@ export default function Contact() {
 					setInputValue('')
 					setTextareaValue('')
 				}
+
+				setSuccess(true)
 			} catch (e) {
 				console.error('Data not sent:', e)
 			}
@@ -133,52 +140,62 @@ export default function Contact() {
 			id="contact"
 			className="h-screen p-[2rem] mt-[10rem] flex justify-center items-center montserrat"
 		>
-			<div className="p-[2rem]">
-				<h1 className="text-[2rem] font-semibold">Say Hello</h1>
+			{success ? (
+				<h1 className="chakra-petch text-[1.5rem]">
+					Your message has been sent!
+				</h1>
+			) : (
+				<>
+					<div className="p-[2rem]">
+						<h1 className="text-[2rem] font-semibold">Say Hello</h1>
 
-				<div className="border mt-[1rem] mb-[5rem]"></div>
+						<div className="border mt-[1rem] mb-[5rem]"></div>
 
-				<form
-					ref={formRef}
-					onSubmit={handleSubmit}
-					className="flex flex-col gap-[4rem]"
-				>
-					{inputs.map((input, i) => (
-						<Fieldset key={i}>
-							{input.element === 'input' ? (
-								<input
-									type={input.text}
-									id={input.id}
-									name={input.id}
-									value={inputValue}
-									autoComplete="off"
-									maxLength={100}
-									className="nunito"
-									onChange={e => setInputValue(e.target.value)}
-									required
-								/>
-							) : (
-								<textarea
-									ref={textareaRef}
-									value={textareaValue}
-									id={input.id}
-									name={input.id}
-									autoComplete="off"
-									maxLength={3000}
-									className="nunito"
-									onChange={e => setTextareaValue(e.target.value)}
-									required
-								></textarea>
-							)}
-							<label htmlFor={input.id}>{input.text}</label>
-						</Fieldset>
-					))}
+						<form
+							ref={formRef}
+							onSubmit={handleSubmit}
+							className="flex flex-col gap-[4rem]"
+						>
+							{inputs.map((input, i) => (
+								<Fieldset key={i}>
+									{input.element === 'input' ? (
+										<input
+											type={input.text}
+											id={input.id}
+											name={input.id}
+											value={inputValue}
+											autoComplete="off"
+											maxLength={100}
+											className="nunito"
+											onChange={e => setInputValue(e.target.value)}
+											required
+										/>
+									) : (
+										<textarea
+											ref={textareaRef}
+											value={textareaValue}
+											id={input.id}
+											name={input.id}
+											autoComplete="off"
+											maxLength={3000}
+											className="nunito"
+											onChange={e => setTextareaValue(e.target.value)}
+											required
+										></textarea>
+									)}
+									<label htmlFor={input.id}>{input.text}</label>
+								</Fieldset>
+							))}
 
-					<SendBtn type="submit" className="chakra-petch">
-						Send message
-					</SendBtn>
-				</form>
-			</div>
+							<SendBtn type="submit" className="chakra-petch">
+								Send message
+							</SendBtn>
+
+							{isSending && <Loader />}
+						</form>
+					</div>
+				</>
+			)}
 		</div>
 	)
 }
